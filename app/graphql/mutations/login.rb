@@ -8,7 +8,7 @@ class Mutations::Login < Mutations::BaseMutation
     user = User.find_by_email(email)
 
     if user&.authenticate(password)
-      token = JWT.encode({ user_id: user.id }, 'testsecretcode', 'HS256')
+      token = JWT.encode({ user_id: user.id }, "testsecretcode", "HS256")
 
       { token: token }
     else
